@@ -4,14 +4,14 @@ export function renderProducts(element) {
       title: "Industrial Tin Necks",
       desc: "Precision-engineered necks for chemical and industrial metal containers.",
       features: ["High-grade tinplate", "Leak-proof threading", "Custom diameters"],
-      image: "/images/tin-cap/PHOTO-2024-04-16-23-28-13%205.JPG",
+      image: "/images/tin-cap/PHOTO-2024-04-16-23-28-13-5.JPG",
       color: "#f59e0b"
     },
     {
       title: "Lever Lids & Rings",
       desc: "Secure sealing solutions for paint, ink, and coating cans.",
       features: ["Air-tight closure", "Standard sizes available", "Easy-to-open design"],
-      image: "/images/tin-cap/PHOTO-2024-04-16-23-28-12%2013.JPG",
+      image: "/images/tin-cap/PHOTO-2024-04-16-23-28-12-13.JPG",
       color: "#0ea5e9"
     },
     {
@@ -25,7 +25,7 @@ export function renderProducts(element) {
       title: "Customized Components",
       desc: "Bespoke D.T. rings, dual caps, and industrial tin fittings.",
       features: ["Tailored specifications", "Prototyping support", "Bulk manufacturing"],
-      image: "/images/tin-cap/PHOTO-2024-04-16-23-28-13%208.JPG",
+      image: "/images/tin-cap/PHOTO-2024-04-16-23-28-13-8.JPG",
       color: "#8b5cf6"
     }
   ]
