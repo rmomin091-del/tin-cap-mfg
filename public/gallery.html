@@ -72,12 +72,18 @@
       transition: width 0.1s linear;
     }
 
+    /* ── CONTAINER (needed by gallery sections) ── */
     .container {
       width: 100%;
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 2rem;
     }
+
+    .highlight { color: var(--color-accent); }
+
+    /* Hide hamburger on gallery — no menu needed */
+    .menu-toggle { display: none !important; }
 
     /* ── HERO ── */
     .hero-banner {
@@ -99,6 +105,16 @@
         linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
       background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse, rgba(212,175,55,0.13) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -131,6 +147,7 @@
     .hero-banner-inner {
       position: relative; z-index: 2;
       max-width: 820px; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center;
     }
 
     .hero-tag {
@@ -143,6 +160,20 @@
       font-size: 0.875rem; font-weight: 600;
       letter-spacing: 0.14em; text-transform: uppercase;
       margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-expo) 0.1s forwards;
+    }
+
+    .hero-tag .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: dotPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.7); }
     }
 
     .hero-headline {
@@ -151,6 +182,8 @@
       font-weight: 800;
       color: var(--color-white);
       line-height: 1.08; letter-spacing: -0.03em;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-expo) 0.25s forwards;
     }
 
     .hero-headline .line-gold {
@@ -160,125 +193,517 @@
       background-clip: text;
     }
 
+    .hero-divider {
+      width: 56px; height: 2px;
+      background: var(--gradient-gold);
+      margin: 2rem auto;
+      border-radius: 2px;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease-expo) 0.4s forwards;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem; color: #94a3b8;
+      max-width: 560px; line-height: 1.7;
+      margin: 2rem auto 3.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-expo) 0.5s forwards;
+    }
+
     .hero-stats {
       display: flex; align-items: stretch;
       width: 100%; max-width: 660px;
       background: rgba(255,255,255,0.035);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px; overflow: hidden;
-      margin: 3.5rem auto 0;
       backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.06);
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-expo) 0.68s forwards;
     }
 
-    .stat { flex: 1; padding: 1.75rem 0.75rem; position: relative; }
+    .stat {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 1.75rem 0.75rem; position: relative;
+    }
+
     .stat+.stat::before {
-      content: ''; position: absolute; left: 0; top: 22%; bottom: 22%;
+      content: ''; position: absolute;
+      left: 0; top: 22%; bottom: 22%;
       width: 1px; background: rgba(255,255,255,0.08);
     }
 
-    .stat-num { font-size: 2rem; font-weight: 800; color: var(--color-accent); }
-    .stat-label { font-size: 0.75rem; color: #cbd5e1; text-transform: uppercase; display: block; }
+    .stat-num {
+      font-family: var(--font-heading);
+      font-size: 2rem; font-weight: 800;
+      color: var(--color-accent); line-height: 1;
+      display: flex; align-items: baseline; gap: 0.08rem;
+    }
+
+    .stat-num sup { font-size: 1rem; font-weight: 700; color: var(--color-accent); }
+
+    .stat-label {
+      font-size: 0.75rem; color: #cbd5e1;
+      text-transform: uppercase; letter-spacing: 0.11em;
+      margin-top: 0.35rem; font-weight: 600;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── INFO STRIP ── */
+    .info-strip {
+      background: var(--color-white);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 2.5rem 0;
+    }
+
+    .info-strip-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .info-item { display: flex; align-items: flex-start; gap: 1rem; }
+
+    .info-icon {
+      width: 44px; height: 44px;
+      background: rgba(212,175,55,0.1);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-accent); flex-shrink: 0;
+    }
+
+    .info-item h4 { font-size: 0.9rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.2rem; }
+    .info-item p { font-size: 0.85rem; color: var(--color-text-light); line-height: 1.5; }
+
+    /* ── PRODUCTS RANGE ── */
+    .products-info { padding: 6rem 1.5rem; background: #ffffff; }
+
+    .text-center { text-align: center; }
+    .mb-12 { margin-bottom: 3rem; }
+
+    .section-tag {
+      display: inline-block;
+      padding: 0.4rem 1.2rem; border-radius: 99px;
+      font-size: 0.8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+
+    .product-tags {
+      display: flex; flex-wrap: wrap; gap: 1.25rem;
+      justify-content: center; margin-top: 3rem;
+      max-width: 1000px; margin-left: auto; margin-right: auto;
+    }
+
+    .product-tag-new {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      padding: 0.8rem 1.5rem;
+      background: #f8fafc;
+      border: 1px solid rgba(15,23,42,0.05);
+      border-radius: 99px;
+      font-size: 0.95rem; font-weight: 600;
+      color: var(--color-primary);
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .product-tag-new svg { color: var(--color-accent); transition: transform 0.3s ease; }
+
+    .product-tag-new:hover {
+      background: var(--color-white);
+      border-color: var(--color-accent-light);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -5px rgba(15,23,42,0.08);
+      color: var(--color-accent);
+    }
+
+    .product-tag-new:hover svg { transform: scale(1.15); }
 
     /* ── GALLERY ── */
-    .gallery-section { max-width: 1280px; margin: 0 auto; padding: 4rem 2rem; }
-    .gallery-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .gallery-section {
+      max-width: 1280px; margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+    }
+
+    .gallery-header {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap; gap: 1rem;
+    }
+
+    .gallery-header h2 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem; font-weight: 800;
+      color: var(--color-primary); margin: 0; text-align: left;
+    }
+
+    .img-count {
+      background: var(--color-white);
+      border: 1px solid #e2e8f0;
+      border-radius: 99px;
+      padding: 0.35rem 1.2rem;
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--color-text-light);
+    }
+
     .gallery-grid { columns: 4 250px; gap: 1.25rem; }
 
     .gallery-item {
-      break-inside: avoid; margin-bottom: 1.25rem;
+      break-inside: avoid; margin-bottom: 1rem;
       border-radius: 12px; overflow: hidden;
       cursor: pointer; position: relative;
-      background: #f1f5f9; box-shadow: var(--shadow);
-      opacity: 0; transform: translateY(20px);
-      transition: all 0.6s var(--ease-expo);
+      box-shadow: var(--shadow); background: #e2e8f0;
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.8s var(--ease-expo), transform 0.8s var(--ease-expo);
+      will-change: opacity, transform;
     }
 
     .gallery-item.visible { opacity: 1; transform: translateY(0); }
-    .gallery-item img { width: 100%; display: block; transition: transform 0.5s ease; }
-    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item img { width: 100%; display: block; transition: transform 0.4s ease, filter 0.4s ease; }
+
+    .gallery-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); filter: brightness(0.9); }
+    .gallery-item:hover::after { opacity: 1; }
+
+    .gallery-zoom-icon {
+      position: absolute; bottom: 0.75rem; right: 0.75rem;
+      background: rgba(255,255,255,0.9); border-radius: 50%;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-primary);
+      opacity: 0; transform: scale(0.8);
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 2;
+    }
+
+    .gallery-item:hover .gallery-zoom-icon { opacity: 1; transform: scale(1); }
 
     /* ── LIGHTBOX ── */
     .lightbox {
       display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.95); z-index: 9000;
+      background: rgba(0,0,0,0.92); z-index: 9000;
       align-items: center; justify-content: center;
+      padding: 1rem; backdrop-filter: blur(8px);
     }
-    .lightbox.open { display: flex; }
-    .lightbox-inner img { max-width: 90vw; max-height: 85vh; border-radius: 8px; }
-    .lb-close { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 2rem; cursor: pointer; background: none; border: none; }
 
+    .lightbox.open { display: flex; }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: min(90vw, 900px); max-height: 90vh;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .lightbox-inner img {
+      max-width: 100%; max-height: 88vh;
+      border-radius: 12px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+      object-fit: contain; display: block;
+    }
+
+    .lb-close {
+      position: fixed; top: 1.25rem; right: 1.25rem;
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%; color: #fff; font-size: 1.4rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s; z-index: 10;
+    }
+
+    .lb-close:hover { background: rgba(255,255,255,0.25); }
+
+    .lb-nav {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%; color: #fff; font-size: 1.5rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s; z-index: 10;
+    }
+
+    .lb-nav:hover { background: rgba(255,255,255,0.25); }
+    .lb-prev { left: 1.25rem; }
+    .lb-next { right: 1.25rem; }
+
+    .lb-counter {
+      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.6); font-size: 0.85rem; font-weight: 500;
+      background: rgba(0,0,0,0.4); padding: 0.35rem 1rem; border-radius: 99px;
+    }
+
+    /* ── CTA FOOTER ── */
+    .cta-footer {
+      background: var(--color-primary); padding: 3rem 2rem;
+      text-align: center; border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .cta-footer h3 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .cta-footer p { color: #94a3b8; margin-bottom: 2.5rem; max-width: 500px; margin-inline: auto; line-height: 1.7; font-size: 1.1rem; }
+
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 2rem; background: #25D366; color: #ffffff !important;
+      font-weight: 700; font-size: 0.95rem; border-radius: 9999px;
+      box-shadow: 0 8px 20px rgba(37,211,102,0.25);
+      transition: all 0.25s var(--ease-expo); border: none;
+    }
+
+    .btn-wa:hover { background: #20BA56; transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 25px rgba(37,211,102,0.4); }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .gallery-grid { columns: 2 150px; }
-      .hero-stats { flex-wrap: wrap; }
-      .stat { flex: 1 0 50%; }
+
+      .gallery-grid { columns: 2 160px; }
+      .hero-banner { padding: 7rem 1.5rem 4rem; }
+      .hero-headline { font-size: 2.6rem; }
+      .hero-stats { flex-wrap: wrap; border-radius: 16px; }
+      .stat { flex: 1 0 calc(50% - 1px); }
+      .stat:nth-child(3)::before { display: none; }
+      .info-strip, .gallery-section, .products-info { padding: 2.5rem 1.5rem; }
+      .hero-ornament { display: none; }
+      .container { padding: 0 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { columns: 2 140px; }
+      .navbar { padding: 0.8rem 0; }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid { columns: 2 140px; }
     }
   </style>
 </head>
 
-<body>
+<body style="margin: 0;">
+
   <div id="progress-bar"></div>
 
+  <!-- ── NAVBAR ── -->
   <header id="header"></header>
 
+  <!-- ── HERO ── -->
   <section class="hero-banner">
+    <svg class="hero-ornament tl" width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <path d="M4 76V4H76" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M4 40V4H40" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+      <circle cx="4" cy="4" r="3" fill="#d4af37"/>
+    </svg>
+    <svg class="hero-ornament tr" width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <path d="M4 76V4H76" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M4 40V4H40" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+      <circle cx="4" cy="4" r="3" fill="#d4af37"/>
+    </svg>
+    <svg class="hero-ornament bl" width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <path d="M4 76V4H76" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M4 40V4H40" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+      <circle cx="4" cy="4" r="3" fill="#d4af37"/>
+    </svg>
+    <svg class="hero-ornament br" width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <path d="M4 76V4H76" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M4 40V4H40" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+      <circle cx="4" cy="4" r="3" fill="#d4af37"/>
+    </svg>
+
     <div class="hero-banner-inner">
-      <span class="hero-tag">Product Gallery</span>
-      <h1 class="hero-headline">Manufacturing<br><span class="line-gold">Capabilities</span></h1>
+      <span class="hero-tag">
+        <span class="dot"></span>
+        Product Gallery
+      </span>
+      <h1 class="hero-headline">
+        Our Manufacturing<br><span class="line-gold">Products &amp; Capabilities</span>
+      </h1>
+      <p class="hero-sub">
+        A visual showcase of the comprehensive range of tin components we manufacture
+        from Necks and Caps to D.T. Rings, Lids, and customized solutions.
+      </p>
       <div class="hero-stats">
-        <div class="stat"><span class="stat-num">70+</span><span class="stat-label">Years</span></div>
-        <div class="stat"><span class="stat-num">1955</span><span class="stat-label">Founded</span></div>
-        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Quality</span></div>
+        <div class="stat">
+          <span class="stat-num">70<sup>+</sup></span>
+          <span class="stat-label">Years of Trust</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">1955</span>
+          <span class="stat-label">Founded</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Markets Served</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">100<sup>%</sup></span>
+          <span class="stat-label">Quality Tested</span>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ── INFO STRIP ── -->
+  <div class="info-strip">
+    <div class="info-strip-inner">
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Quality Commitment</h4>
+          <p>Strict quality standards at every manufacturing stage for trusted, durable products.</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Domestic &amp; International</h4>
+          <p>Trusted by a wide network of clients across both Domestic and International markets.</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Cost-Effective Solutions</h4>
+          <p>Providing superior quality at competitive prices to serve clients of all scales.</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Custom Components</h4>
+          <p>Various shapes and sizes manufactured as per individual customer requirements.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRODUCTS RANGE ── -->
+  <section class="products-info">
+    <div class="container">
+      <div class="text-center mb-12">
+        <span class="section-tag" style="background: rgba(15,23,42,0.05); color: var(--color-primary); margin: 0 auto 1.5rem auto;">What We Manufacture</span>
+        <h2 style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 1rem; font-family: var(--font-heading); font-weight: 800;">
+          Complete Product <span style="color: var(--color-accent)">Range</span>
+        </h2>
+        <p style="font-size: 1.1rem; color: #64748b; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+          Manufacturing a comprehensive range of tin components serving diverse industry needs. All components available in customized specifications.
+        </p>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag-new"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>All Types of Necks</span>
+        <span class="product-tag-new"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>1 Litre Caps</span>
+        <span class="product-tag-new"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>4 Litre Caps</span>
+        <span class="product-tag-new"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>D.T. Rings / Lids</span>
+        <span class="product-tag-new"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Brush-in-Can</span>
+        <span class="product-tag-new"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Dual Caps</span>
+        <span class="product-tag-new"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Integrated Round Tops</span>
+        <span class="product-tag-new"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Customized Components</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ── -->
   <section class="gallery-section">
     <div class="gallery-header">
       <h2>Product Image Gallery</h2>
-      <span id="imgCount" style="color: var(--color-text-light)">Loading...</span>
+      <span class="img-count" id="imgCount">Loading…</span>
     </div>
     <div class="gallery-grid" id="galleryGrid"></div>
   </section>
 
+  <!-- ── FOOTER ── -->
   <footer id="footer-mount"></footer>
-  <div id="floating-actions-mount"></div>
 
+  <!-- ── LIGHTBOX ── -->
   <div class="lightbox" id="lightbox">
-    <button class="lb-close" id="lbClose">✕</button>
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
     <div class="lightbox-inner">
-      <img id="lbImg" src="" alt="Product" />
+      <img id="lbImg" src="" alt="Product image" />
     </div>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+    <div class="lb-counter" id="lbCounter"></div>
   </div>
 
-  <script type="module">
-    // FIXED: Using relative paths so Vite can bundle these for production
-    import { renderNavbar } from './src/components/navbar.js';
-    import { renderFloatingActions } from './src/components/floating-actions.js';
-    import { renderFooter } from './src/components/footer.js';
+  <div id="floating-actions-mount"></div>
 
-    // 1. Initialize Global Components
-    const header = document.getElementById('header');
-    if (header) {
-      renderNavbar(header, { alwaysDark: true, basePath: '' });
-      // Simplify Nav for Gallery
-      const navLinks = document.querySelector('.nav-links');
-      if (navLinks) {
-        navLinks.innerHTML = `<a href="/" style="font-weight:700; color:var(--color-accent);">← Back to Home</a>`;
-      }
-    }
+  <script type="module">
+    import { renderNavbar } from '/src/components/navbar.js';
+    import { renderFloatingActions } from '/src/components/floating-actions.js';
+    import { renderFooter } from '/src/components/footer.js';
+
+    // Render navbar then replace nav links with single Back to Home button
+    renderNavbar(document.getElementById('header'), { alwaysDark: true, basePath: '' });
+    document.querySelector('.nav-links').outerHTML = `
+      <a href="/" style="
+        display: inline-flex; align-items: center; gap: 0.5rem;
+        padding: 0.6rem 1.4rem;
+        background: linear-gradient(135deg, #d4af37 0%, #b4941f 50%, #997b19 100%);
+        color: #0f172a;
+        border-radius: 9999px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+        transition: all 0.25s ease;
+      ">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="m15 18-6-6 6-6"/>
+        </svg>
+        Back to Home
+      </a>
+    `;
 
     renderFloatingActions(document.getElementById('floating-actions-mount'));
     renderFooter(document.getElementById('footer-mount'));
 
-    // 2. Scroll Progress
-    const progress = document.getElementById('progress-bar');
+    // ── Scroll Progress ──
+    const progressBar = document.getElementById('progress-bar');
     window.addEventListener('scroll', () => {
       const winScroll = document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      progress.style.width = (winScroll / height * 100) + "%";
+      progressBar.style.width = ((winScroll / height) * 100) + '%';
     }, { passive: true });
 
-    // 3. Image List
+    // ── Floating particles ──
+    const hero = document.querySelector('.hero-banner');
+    for (let i = 0; i < 14; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 4 + 2;
+      p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;bottom:${Math.random()*35}%;animation-duration:${4+Math.random()*6}s;animation-delay:${Math.random()*6}s;`;
+      hero.appendChild(p);
+    }
+
+    // ── Gallery images — all 22 ──
     const images = [
       "/images/tin-cap/PHOTO-2024-04-16-23-28-11-3.JPG",
       "/images/tin-cap/PHOTO-2024-04-16-23-28-11-4.JPG",
@@ -301,29 +726,82 @@
       "/images/tin-cap/PHOTO-2024-04-16-23-29-44-5.JPG",
       "/images/tin-cap/PHOTO-2024-04-16-23-29-44-6.JPG",
       "/images/tin-cap/PHOTO-2024-04-16-23-29-44.JPG",
-      "/images/tin-cap/61265823-3B5C-4CC4-896B-C6C27233B5C9.PNG"
+      "/images/tin-cap/61265823-3B5C-4CC4-896B-C6C27233B5C9.PNG",
     ];
 
-    // 4. Gallery Logic
     const grid = document.getElementById('galleryGrid');
+    const imgCount = document.getElementById('imgCount');
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    const lbCounter = document.getElementById('lbCounter');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
+    let currentIndex = 0;
+    let validImages = [];
 
-    images.forEach(src => {
-      const item = document.createElement('div');
-      item.className = 'gallery-item';
-      item.innerHTML = `<img src="${src}" loading="lazy" alt="Product">`;
-      item.onclick = () => { lbImg.src = src; lightbox.classList.add('open'); };
-      grid.appendChild(item);
-      observer.observe(item);
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    images.forEach((src) => {
+      const probe = new Image();
+      probe.onload = () => {
+        const idx = validImages.length;
+        validImages.push(src);
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.style.transitionDelay = `${(idx % 4) * 0.08}s`;
+        item.innerHTML = `
+          <img src="${src}" alt="G.D. Traders product photo" loading="lazy" />
+          <div class="gallery-zoom-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+              <path d="M11 8v6M8 11h6"/>
+            </svg>
+          </div>
+        `;
+        item.addEventListener('click', () => openLightbox(idx));
+        grid.appendChild(item);
+        revealObserver.observe(item);
+        imgCount.textContent = `${validImages.length} Photos`;
+      };
+      probe.onerror = () => {};
+      probe.src = src;
     });
 
-    document.getElementById('lbClose').onclick = () => lightbox.classList.remove('open');
-    document.getElementById('imgCount').innerText = `${images.length} Photos`;
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function updateLightbox() {
+      lbImg.src = validImages[currentIndex];
+      lbCounter.textContent = `${currentIndex + 1} / ${validImages.length}`;
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    lbPrev.addEventListener('click', () => { currentIndex = (currentIndex - 1 + validImages.length) % validImages.length; updateLightbox(); });
+    lbNext.addEventListener('click', () => { currentIndex = (currentIndex + 1) % validImages.length; updateLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + validImages.length) % validImages.length; updateLightbox(); }
+      if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % validImages.length; updateLightbox(); }
+    });
   </script>
 </body>
 </html>
