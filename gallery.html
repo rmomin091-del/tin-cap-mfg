@@ -85,6 +85,49 @@
     /* Hide hamburger on gallery — no menu needed */
     .menu-toggle { display: none !important; }
 
+    /* ── BACK BUTTON (mobile-optimized) ── */
+    #back-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.2rem;
+      background: var(--gradient-gold);
+      color: #0f172a !important;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      cursor: pointer;
+    }
+    #back-home-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(212,175,55,0.5);
+    }
+    #back-home-btn:active {
+      transform: scale(0.97);
+      box-shadow: 0 2px 8px rgba(212,175,55,0.3);
+    }
+    #back-home-btn svg { flex-shrink: 0; }
+
+    @media (max-width: 480px) {
+      #back-home-btn {
+        padding: 0.5rem 0.75rem;
+        gap: 0.25rem;
+      }
+      #back-home-btn .btn-label {
+        display: none;
+      }
+      #back-home-btn svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
     /* ── HERO ── */
     .hero-banner {
       background: var(--gradient-hero);
@@ -466,7 +509,6 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-
       .gallery-grid { columns: 2 160px; }
       .hero-banner { padding: 7rem 1.5rem 4rem; }
       .hero-headline { font-size: 2.6rem; }
@@ -660,27 +702,20 @@
     import { renderFloatingActions } from '/src/components/floating-actions.js';
     import { renderFooter } from '/src/components/footer.js';
 
-    // Render navbar then replace nav links with single Back to Home button
+    // Render navbar
     renderNavbar(document.getElementById('header'), { alwaysDark: true, basePath: '' });
-    document.querySelector('.nav-links').outerHTML = `
-      <a href="/" style="
-        display: inline-flex; align-items: center; gap: 0.5rem;
-        padding: 0.6rem 1.4rem;
-        background: linear-gradient(135deg, #d4af37 0%, #b4941f 50%, #997b19 100%);
-        color: #0f172a;
-        border-radius: 9999px;
-        font-size: 0.88rem;
-        font-weight: 700;
-        text-decoration: none;
-        box-shadow: 0 4px 15px rgba(212,175,55,0.4);
-        transition: all 0.25s ease;
-      ">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="m15 18-6-6 6-6"/>
-        </svg>
-        Back to Home
-      </a>
+
+    // Replace nav links with mobile-optimized Back to Home button
+    const backBtn = document.createElement('a');
+    backBtn.href = '/';
+    backBtn.id = 'back-home-btn';
+    backBtn.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span class="btn-label">Back to Home</span>
     `;
+    document.querySelector('.nav-links').replaceWith(backBtn);
 
     renderFloatingActions(document.getElementById('floating-actions-mount'));
     renderFooter(document.getElementById('footer-mount'));
