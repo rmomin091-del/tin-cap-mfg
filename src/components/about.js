@@ -41,7 +41,7 @@ export function renderAbout(element) {
               </div>
               <div>
                 <strong>Why Choose G.D. Traders?</strong>
-                <p>Manufacturing Excellence Since 1955, 70+ Years Industry Experience, Premium Quality Raw Material, Advanced Machinery, Bulk Manufacturing Capability, Custom Size & Design Support, Competitive Pricing, On-Time Delivery.</p>
+                <p>Manufacturing Excellence Since 1955, 70+ Years Industry Experience, Premium Quality Raw Material, High-Performance Manual Machines, Bulk Manufacturing Capability, Custom Size Support, Competitive Pricing, On-Time Delivery.</p>
               </div>
             </div>
           </div>

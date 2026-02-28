@@ -53,7 +53,7 @@ export function renderFooter(element) {
               <strong style="color:var(--color-white)">Works:</strong> Gala 23, Haji Bunder Rd, Sewri, Mumbai 400015
             </li>
             <li><strong>Email:</strong> riyaz_sgd@yahoo.co.in</li>
-            <li><strong>Call:</strong> +91 98206 33642 / 2307 2085</li>
+            <li><strong>Call:</strong> +91 98206 33642</li>
           </ul>
         </div>
       </div>

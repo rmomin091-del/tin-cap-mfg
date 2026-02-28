@@ -48,8 +48,8 @@ export function renderTrusted(element) {
               <div class="why-icon-wrap">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
               </div>
-              <h3 class="why-card-title">Advanced Machinery</h3>
-              <p class="why-card-text">Utilizing Advanced Machinery and providing Custom Size & Design Support.</p>
+              <h3 class="why-card-title">High-Performance Manual Machines</h3>
+              <p class="why-card-text">Built for accuracy, durability, and efficiency to provide Custom Size & Design Support.</p>
             </div>
 
             <div class="why-card-new reveal-up reveal-group-item">
