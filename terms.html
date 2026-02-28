@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service | G.D. Traders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+  <style>
+    .page-container {
+      max-width: 800px;
+      margin: 140px auto 80px;
+      padding: 0 2rem;
+      min-height: 50vh;
+    }
+    .page-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      color: #0f172a;
+      margin-bottom: 2rem;
+    }
+    .page-content p {
+      color: #334155;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header id="header"></header>
+  
+  <main class="page-container">
+    <h1 class="page-title">Terms of Service</h1>
+    <div class="page-content">
+      <p>Welcome to G.D. Traders. By accessing and using our website or engaging with our manufacturing services, you agree to comply with the following Terms of Service.</p>
+      <p>All content provided on this website is for informational purposes related to our tin manufacturing business. Product specifications, availability, and pricing (when quoted) are subject to change without notice.</p>
+      <p>For custom manufacturing orders and bulk supplies, specific contractual terms and conditions will apply and will be provided during the quotation and order confirmation process.</p>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+  <div id="floating-actions"></div>
+
+  <script type="module">
+    import { renderNavbar } from '/src/components/navbar.js';
+    import { renderFooter } from '/src/components/footer.js';
+    import { renderFloatingActions } from '/src/components/floating-actions.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Create Progress Bar
+      const progressBar = document.createElement('div')
+      progressBar.id = 'progress-bar'
+      document.body.prepend(progressBar)
+
+      renderNavbar(document.querySelector('#header'), { alwaysDark: true })
+      renderFooter(document.querySelector('#footer'))
+      renderFloatingActions(document.querySelector('#floating-actions'))
+    });
+  </script>
+</body>
+</html>

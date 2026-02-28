@@ -25,7 +25,7 @@ export function renderTrusted(element) {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <h3 class="why-card-title">Heritage of Excellence</h3>
-              <p class="why-card-text">Manufacturing excellence since 1955, delivering reliability for over 70 years.</p>
+              <p class="why-card-text">Manufacturing Excellence Since 1955, delivering reliability with over 70+ Years Industry Experience.</p>
             </div>
 
             <div class="why-card-new reveal-up reveal-group-item">
@@ -33,7 +33,7 @@ export function renderTrusted(element) {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
               </div>
               <h3 class="why-card-title">Premium Materials</h3>
-              <p class="why-card-text">We source only high-grade tinplate and certified raw materials for every component.</p>
+              <p class="why-card-text">We source only Premium Quality Raw Material for every component we manufacture.</p>
             </div>
 
             <div class="why-card-new reveal-up reveal-group-item">
@@ -41,7 +41,7 @@ export function renderTrusted(element) {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
               </div>
               <h3 class="why-card-title">Competitive Value</h3>
-              <p class="why-card-text">Optimized manufacturing processes allow us to offer institutional pricing without compromise.</p>
+              <p class="why-card-text">Optimized processes allow us to offer Competitive Pricing without any compromise on quality.</p>
             </div>
 
             <div class="why-card-new reveal-up reveal-group-item">
@@ -49,7 +49,7 @@ export function renderTrusted(element) {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
               </div>
               <h3 class="why-card-title">Advanced Machinery</h3>
-              <p class="why-card-text">State-of-the-art precision tooling and automated lines for consistent quality.</p>
+              <p class="why-card-text">Utilizing Advanced Machinery and providing Custom Size & Design Support.</p>
             </div>
 
             <div class="why-card-new reveal-up reveal-group-item">
@@ -57,7 +57,7 @@ export function renderTrusted(element) {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2L3 12h9l-1 10 8-10h-9l1-10z"/></svg>
               </div>
               <h3 class="why-card-title">Bulk Capacity</h3>
-              <p class="why-card-text">Equipped to handle high-volume industrial orders with rapid turnaround cycles.</p>
+              <p class="why-card-text">Fully equipped with Bulk Manufacturing Capability for high-volume orders.</p>
             </div>
 
             <div class="why-card-new reveal-up reveal-group-item">
@@ -65,7 +65,7 @@ export function renderTrusted(element) {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
               </div>
               <h3 class="why-card-title">On-Time Delivery</h3>
-              <p class="why-card-text">Robust logistics network ensuring your production line never stops due to delays.</p>
+              <p class="why-card-text">A robust logistics network ensuring On-Time Delivery so your line never stops.</p>
             </div>
           </div>
         </div>
@@ -106,28 +106,28 @@ export function renderTrusted(element) {
               <div class="ind-icon-wrap">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14"/><path d="M9 5V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M10 9h4"/><path d="M10 13h4"/><path d="M10 17h4"/></svg>
               </div>
-              <span class="ind-name">Shoe Polish</span>
+              <span class="ind-name">Shoe Polish Manufacturers</span>
             </div>
 
             <div class="ind-card-new reveal-up reveal-group-item">
               <div class="ind-icon-wrap">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5s-3 3.5-3 5.5a7 7 0 0 0 7 7z"/></svg>
               </div>
-              <span class="ind-name">Lubricants</span>
+              <span class="ind-name">Lubricant Industry</span>
             </div>
 
             <div class="ind-card-new reveal-up reveal-group-item">
               <div class="ind-icon-wrap">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect x="3" y="4" width="18" height="12" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
               </div>
-              <span class="ind-name">Industrial Pkg</span>
+              <span class="ind-name">Industrial Chemical Packaging</span>
             </div>
 
             <div class="ind-card-new reveal-up reveal-group-item">
               <div class="ind-icon-wrap">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
               </div>
-              <span class="ind-name">FMCG Sector</span>
+              <span class="ind-name">FMCG Packaging</span>
             </div>
           </div>
         </div>

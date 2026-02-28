@@ -1,30 +1,23 @@
 export function renderProducts(element) {
   const products = [
     {
-      title: "Industrial Tin Necks",
-      desc: "Precision-engineered necks for chemical and industrial metal containers.",
-      features: ["High-grade tinplate", "Leak-proof threading", "Custom diameters"],
+      title: "Tin Containers",
+      desc: "Round, Rectangular, Integrated, Pesticide Tops, Shoe Polish, Key and Push Type, Aluminium Dual.",
+      features: ["Round & Rectangular Cans", "Pesticide & Shoe Polish", "Aluminium Dual Containers"],
       image: "/images/tin-cap/PHOTO-2024-04-16-23-28-13-5.JPG",
       color: "#f59e0b"
     },
     {
-      title: "Lever Lids & Rings",
-      desc: "Secure sealing solutions for paint, ink, and coating cans.",
-      features: ["Air-tight closure", "Standard sizes available", "Easy-to-open design"],
+      title: "Tin Components",
+      desc: "Comprehensive selection of rings, lids, bottoms, and industrial tin parts.",
+      features: ["All Types of Rings", "Lids & Bottoms", "Custom Industrial Parts"],
       image: "/images/tin-cap/PHOTO-2024-04-16-23-28-12-13.JPG",
       color: "#0ea5e9"
     },
     {
-      title: "Specialty Closures",
-      desc: "Diverse range of caps and closures for 1L to 4L tin containers.",
-      features: ["Tamper-evident", "Protective coating", "Precision fit"],
-      image: "/images/tin-cap/PHOTO-2024-04-16-23-28-12.JPG",
-      color: "#22c55e"
-    },
-    {
-      title: "Customized Components",
-      desc: "Bespoke D.T. rings, dual caps, and industrial tin fittings.",
-      features: ["Tailored specifications", "Prototyping support", "Bulk manufacturing"],
+      title: "Customized Solutions",
+      desc: "Bespoke packaging solutions with bulk manufacturing and custom size capabilities.",
+      features: ["✔ Bulk Supply", "✔ Custom Sizes Available", "✔ Industrial & Food Grade"],
       image: "/images/tin-cap/PHOTO-2024-04-16-23-28-13-8.JPG",
       color: "#8b5cf6"
     }
@@ -52,7 +45,7 @@ export function renderProducts(element) {
                 ${product.features.map(f => `
                   <li>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="${product.color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
-                    ${f}
+                    ${f.replace('✔', '')}
                   </li>
                 `).join('')}
               </ul>

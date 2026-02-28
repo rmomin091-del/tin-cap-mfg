@@ -40,8 +40,8 @@ export function renderFooter(element) {
             <li><a href="#about">About Us</a></li>
             <li><a href="#products">Products</a></li>
             <li><a href="/gallery.html">Gallery</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms</a></li>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
           </ul>
         </div>
         

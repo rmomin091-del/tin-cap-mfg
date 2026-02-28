@@ -14,16 +14,16 @@ export function renderAbout(element) {
         <div class="about-content reveal-right">
           <span class="section-tag">About Us</span>
           <h2 class="section-title">Decades of <span class="text-gradient">Excellence</span> in Metal Closures</h2>
-          <p class="about-lead">Founded in <strong>1955</strong> with the vision to become a leading name in the tin components industry, <strong>G.D. Traders</strong> has been consistently fulfilling customer needs with high-quality products. We are recognized as one of the trusted manufacturers and suppliers in the industry, serving both <strong>Domestic</strong> and <strong>International</strong> markets.</p>
-          <p class="about-lead">Our strict commitment to quality standards has helped us build a strong and trusted reputation. Our continuous efforts to provide <strong>cost-effective solutions with superior quality</strong> have helped us serve a wide network of clients across the globe.</p>
+          <p class="about-lead">Founded in <strong>1955</strong> by our respected founder <strong>Late Haji Gulam Dastagir Shaikh (Gulab Bhai)</strong>, <strong>G.D. Traders</strong> is a leading Tin Can Manufacturing Company in Mumbai.</p>
+          <p class="about-lead">With over <strong>70 years of experience</strong>, our focus on precision manufacturing, premium quality materials, and strict quality control allows us to deliver durable, leak-proof, and cost-effective packaging solutions for various industries across India.</p>
           <div class="values-list">
             <div class="value-item reveal" style="transition-delay: 0.1s">
               <div class="value-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div>
-                <strong>Reputed Market Presence</strong>
-                <p>Serving both Domestic and International markets with a wide network of clients who trust our consistency and quality.</p>
+                <strong>Our Strength</strong>
+                <p>Quality | Trust | Legacy | Timely Delivery.</p>
               </div>
             </div>
             <div class="value-item reveal" style="transition-delay: 0.15s">
@@ -31,8 +31,8 @@ export function renderAbout(element) {
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
               <div>
-                <strong>Strict Quality Standards</strong>
-                <p>Our firm commitment to quality at every step of manufacturing has earned us a strong and trusted reputation in the industry.</p>
+                <strong>Manufacturing Facility</strong>
+                <p>Modern Production Setup, Skilled Workforce, Precision Machinery, Strict Quality Checks, Leak & Pressure Testing, Safe Packaging & Transport.</p>
               </div>
             </div>
             <div class="value-item reveal" style="transition-delay: 0.2s">
@@ -40,8 +40,8 @@ export function renderAbout(element) {
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
               <div>
-                <strong>Comprehensive Product Range</strong>
-                <p>Manufacturing All types of Necks, 1 Litre & 4 Litre Caps, D.T. Rings / Lids, Brush-in-Can, Dual Caps, Integrated Round & Rectangular Tops, and customized components in various shapes and sizes.</p>
+                <strong>Why Choose G.D. Traders?</strong>
+                <p>Manufacturing Excellence Since 1955, 70+ Years Industry Experience, Premium Quality Raw Material, Advanced Machinery, Bulk Manufacturing Capability, Custom Size & Design Support, Competitive Pricing, On-Time Delivery.</p>
               </div>
             </div>
           </div>

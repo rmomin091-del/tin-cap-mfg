@@ -15,7 +15,7 @@ export function renderHero(element) {
             Pioneers of <span class="text-gradient">Top Quality</span> Tin Components
           </h1>
           <p class="hero-subtitle reveal-up" style="transition-delay: 0.2s">
-            Team of highly skilled tin can makers. Manufacturing since 1955. One stop shop for tin cans of any shape and size.
+            G.D. Traders is a leading Tin Can Manufacturing Company in Mumbai, established in 1955 by our respected founder Late Haji Gulam Dastagir Shaikh (Gulab Bhai).
           </p>
           <div class="hero-actions reveal-up" style="transition-delay: 0.3s">
             <a href="#products" class="btn">
